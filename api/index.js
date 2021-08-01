@@ -8,7 +8,6 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
-const port = 5000;
 
 dotenv.config();
 app.use(express.json());
@@ -43,4 +42,5 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);  
 app.use("/api/categories", categoryRoute);
 
-app.listen(process.env.PORT || port );
+const port = process.env.PORT || 5000;
+app.listen(port, err => err ? console.log("Filed to Listen on Port" , port) : console.log("Listing for Port" , port));
